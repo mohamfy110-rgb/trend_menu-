@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#24180f">
+<title>MEDO Café | اطلب قهوتك</title>
+<style>
+:root{--bg:#f8f4ee;--ink:#24180f;--muted:#75675b;--coffee:#5a3824;--gold:#d9b77b;--card:#fff;--line:#eadfd2;--green:#1f9d60}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}
+.top{background:linear-gradient(130deg,#21150f,#563722);color:#fff;padding:18px 5vw 34px}
+.nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}.logo{font-weight:900;font-size:27px;letter-spacing:2px}.logo small{display:block;font-size:10px;letter-spacing:3px;color:#d8bd91}
+.pill{border:1px solid #ffffff55;border-radius:99px;padding:9px 14px;color:#fff;background:#ffffff12}
+.hero{max-width:1100px;margin:30px auto 0;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:24px}
+.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.12;margin:0 0 14px}.hero p{color:#e8d9c9;line-height:1.8;margin:0 0 20px}
+.hero-img{height:260px;border-radius:24px;background:linear-gradient(0deg,#24180f55,#24180f00),url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85') center/cover;overflow:hidden}
+.cta{display:inline-block;background:var(--gold);color:#24180f;border:0;border-radius:12px;padding:12px 20px;font-weight:800;text-decoration:none}
+main{max-width:1100px;margin:0 auto;padding:28px 5vw 70px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:12px 0 18px}.section-head h2{margin:0;font-size:26px}.sub{color:var(--muted);font-size:14px;margin-top:6px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.filter{border:1px solid var(--line);background:#fff;border-radius:99px;padding:9px 15px;color:var(--ink)}.filter.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.search{width:100%;border:1px solid var(--line);background:#fff;border-radius:14px;padding:13px 15px;margin:4px 0 18px;outline-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 5px 18px #4a2b1408}
+.product-img{height:155px;background:#e9dfd4 center/cover;position:relative}.tag{position:absolute;top:10px;right:10px;background:#fff;color:var(--ink);border-radius:99px;padding:6px 10px;font-size:12px;font-weight:700}
+.card-body{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}.card h3{margin:0;font-size:18px}.desc{font-size:13px;color:var(--muted);line-height:1.6;min-height:40px}.price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:8px}.price{font-weight:900;font-size:18px}.add{border:0;border-radius:10px;background:var(--ink);color:#fff;padding:9px 13px;font-weight:700}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:32px 0}.benefit{background:#efe5d8;border-radius:15px;padding:16px}.benefit b{display:block;margin-bottom:5px}.benefit span{font-size:13px;color:var(--muted)}
+.order-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.panel h3{margin:0 0 14px}.cart-empty{color:var(--muted);font-size:14px}.cart-item{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:12px 0}.cart-item:last-child{border:0}.qty{display:flex;align-items:center;gap:8px}.qty button{border:1px solid var(--line);background:#fff;border-radius:8px;width:28px;height:28px}.total{display:flex;justify-content:space-between;font-size:20px;font-weight:900;padding-top:14px;border-top:1px solid var(--line);margin-top:12px}
+.field{display:block;margin:12px 0}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;background:#fff}.field textarea{min-height:75px;resize:vertical}.whatsapp{width:100%;border:0;border-radius:12px;background:var(--green);color:white;padding:14px;font-weight:900;margin-top:8px}.note{font-size:12px;color:var(--muted);line-height:1.7}
+footer{background:#24180f;color:#e8d9c9;text-align:center;padding:24px;font-size:13px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.hero-img{height:210px}.order-layout{grid-template-columns:1fr}}
+@media(max-width:480px){.grid{gap:10px}.product-img{height:130px}.card-body{padding:11px}.card h3{font-size:16px}.desc{font-size:12px}.section-head{align-items:start;flex-direction:column}.benefits{grid-template-columns:1fr}.top{padding-bottom:25px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="nav">
+    <div class="logo">MEDO<small>COFFEE • GOOD MOOD</small></div>
+    <button class="pill" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">🛒 طلباتي <span id="navCount">0</span></button>
+  </div>
+  <div class="hero">
+    <div>
+      <h1>قهوتك المفضلة<br>على مزاجك ☕</h1>
+      <p>اختار مشروبك من منيو MEDO، ضيفه لطلبك، وابعت الطلب مباشرة على واتساب.</p>
+      <a class="cta" href="#menu">شوف المنيو</a>
+    </div>
+    <div class="hero-img" role="img" aria-label="قهوة من MEDO"></div>
+  </div>
+</header>
+<main>
+  <section id="menu">
+    <div class="section-head"><div><h2>المنيو</h2><div class="sub">اختيارات بسيطة ولذيذة، والأسعار بالجنيه المصري</div></div></div>
+    <input class="search" id="search" placeholder="🔎 دور على مشروبك..." aria-label="ابحث في المنيو">
+    <div class="filters">
+      <button class="filter active" data-filter="all">كل المشروبات</button>
+      <button class="filter" data-filter="hot">مشروبات ساخنة</button>
+      <button class="filter" data-filter="cold">مشروبات باردة</button>
+      <button class="filter" data-filter="popular">ترشيحات MEDO</button>
+    </div>
+    <div class="grid" id="products"></div>
+  </section>
+  <section class="benefits">
+    <div class="benefit"><b>☕ اختيارات واضحة</b><span>وصف مختصر يساعدك تختار بسرعة.</span></div>
+    <div class="benefit"><b>🛍️ طلب سهل</b><span>أضف مشروباتك للسلة وعدّل الكمية.</span></div>
+    <div class="benefit"><b>💬 تأكيد على واتساب</b><span>راجع طلبك قبل إرساله للكافيه.</span></div>
+  </section>
+  <section id="order">
+    <div class="section-head"><div><h2>جهّز طلبك</h2><div class="sub">راجع اختياراتك، واكتب بيانات التواصل ثم أرسل الطلب.</div></div></div>
+    <div class="order-layout">
+      <div class="panel">
+        <h3>🛒 سلة الطلب</h3>
+        <div id="cart"><p class="cart-empty">لسه ما ضفتش مشروبات. اختار من المنيو الأول.</p></div>
+        <div class="total"><span>الإجمالي</span><span id="total">0 جنيه</span></div>
+      </div>
+      <div class="panel">
+        <h3>📋 بيانات الطلب</h3>
+        <form id="checkout">
+          <div class="field"><label for="customer">اسمك</label><input id="customer" required placeholder="اكتب اسمك"></div>
+          <div class="field"><label for="phone">رقم موبايلك (اختياري)</label><input id="phone" inputmode="tel" placeholder="01xxxxxxxxx"></div>
+          <div class="field"><label for="method">طريقة الاستلام</label><select id="method"><option>استلام من الكافيه</option><option>توصيل — تأكيد الرسوم على واتساب</option></select></div>
+          <div class="field"><label for="address">العنوان (للتوصيل فقط)</label><input id="address" placeholder="المنطقة والعنوان"></div>
+          <div class="field"><label for="notes">ملاحظات أو تفضيلات</label><textarea id="notes" placeholder="مثلاً: سكر أقل، من غير ثلج..."></textarea></div>
+          <button class="whatsapp" type="submit">إرسال الطلب على واتساب</button>
+          <p class="note">هيفتح واتساب برسالة جاهزة لمراجعتها وإرسالها. الطلب لا يُرسل تلقائيًا، ورسوم التوصيل ووقت الاستلام يتم تأكيدهما مع الكافيه.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section style="margin-top:32px" class="panel">
+    <h3>📍 زور MEDO</h3>
+    <p style="margin-bottom:6px">المعصرة، أمام صيدلية الشيخ</p>
+    <p class="note">للاستفسار والطلبات: واتساب الكافيه</p>
+  </section>
+</main>
+<footer>MEDO Café · قهوتك على مزاجك</footer>
+<script>
+const products=[
+ {id:'cappuccino',name:'كابتشينو',price:75,category:'hot',tag:'كلاسيك',desc:'إسبريسو مع حليب مبخر ورغوة ناعمة.',img:'https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=700&q=80',popular:true},
+ {id:'latte',name:'لاتيه',price:85,category:'hot',tag:'ناعم وكريمي',desc:'قهوة إسبريسو متوازنة مع حليب كريمي.',img:'https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=700&q=80',popular:true},
+ {id:'spanish',name:'آيس سبانش لاتيه',price:95,category:'cold',tag:'ترشيح MEDO',desc:'لاتيه بارد بطابع حلو وغني.',img:'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80',popular:true},
+ {id:'caramel',name:'آيس كارميل',price:90,category:'cold',tag:'بارد ومنعش',desc:'قهوة باردة بلمسة كراميل حلوة.',img:'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80',popular:false}
+];
+const cart={};let filter='all';
+const money=n=>`${n} جنيه`;
+function renderProducts(){
+ const q=document.getElementById('search').value.trim().toLowerCase();
+ const list=products.filter(p=>(filter==='all'||(filter==='popular'?p.popular:p.category===filter))&&p.name.toLowerCase().includes(q));
+ document.getElementById('products').innerHTML=list.map(p=>`<article class="card">
+ <div class="product-img" style="background-image:linear-gradient(0deg,#24180f20,#24180f00),url('${p.img}')"><span class="tag">${p.tag}</span></div>
+ <div class="card-body"><h3>${p.name}</h3><div class="desc">${p.desc}</div><div class="price-row"><span class="price">${money(p.price)}</span><button class="add" onclick="add('${p.id}')">+ أضف</button></div></div></article>`).join('')||'<p>مفيش نتائج مطابقة. جرّب اسم تاني.</p>';
+}
+function add(id){cart[id]=(cart[id]||0)+1;renderCart()}
+function change(id,delta){cart[id]=(cart[id]||0)+delta;if(cart[id]<=0)delete cart[id];renderCart()}
+function renderCart(){
+ const entries=products.filter(p=>cart[p.id]);
+ const count=entries.reduce((s,p)=>s+cart[p.id],0),total=entries.reduce((s,p)=>s+p.price*cart[p.id],0);
+ document.getElementById('navCount').textContent=count;document.getElementById('total').textContent=money(total);
+ document.getElementById('cart').innerHTML=entries.length?entries.map(p=>`<div class="cart-item"><div><b>${p.name}</b><div class="note">${money(p.price)} × ${cart[p.id]}</div></div><div class="qty"><button type="button" onclick="change('${p.id}',-1)">−</button><b>${cart[p.id]}</b><button type="button" onclick="change('${p.id}',1)">+</button></div></div>`).join(''):'<p class="cart-empty">لسه ما ضفتش مشروبات. اختار من المنيو الأول.</p>';
+}
+document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');filter=b.dataset.filter;renderProducts()}));
+document.getElementById('search').addEventListener('input',renderProducts);
+document.getElementById('checkout').addEventListener('submit',e=>{
+ e.preventDefault();const entries=products.filter(p=>cart[p.id]);if(!entries.length){alert('ضيف مشروب واحد على الأقل للسلة.');return}
+ const name=document.getElementById('customer').value.trim(),phone=document.getElementById('phone').value.trim(),method=document.getElementById('method').value,address=document.getElementById('address').value.trim(),notes=document.getElementById('notes').value.trim();
+ const lines=['طلب جديد من موقع MEDO','الاسم: '+name,phone?'رقم الموبايل: '+phone:'','طريقة الاستلام: '+method,method.startsWith('توصيل')&&address?'العنوان: '+address:'','',...entries.map(p=>`${p.name} × ${cart[p.id]} = ${p.price*cart[p.id]} جنيه`),'','الإجمالي: '+entries.reduce((s,p)=>s+p.price*cart[p.id],0)+' جنيه',notes?'ملاحظات: '+notes:''].filter(Boolean);
+ window.open('https://wa.me/201111762831?text='+encodeURIComponent(lines.join('\n')),'_blank');
+});
+renderProducts();renderCart();
+</script>
+</body>
+</html>
