@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171512">
+<title>TREND Café | المنيو الإلكتروني</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+:root{--bg:#f7f4ef;--paper:#fffdf9;--ink:#211d18;--muted:#82766a;--gold:#c79a5b;--gold2:#e9c995;--dark:#171512;--line:#e9e0d5;--green:#187a48}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",Tahoma,Arial,sans-serif}
+a{color:inherit;text-decoration:none}button,input{font:inherit}
+.topbar{background:#171512;color:#fff;position:sticky;top:0;z-index:20;border-bottom:1px solid #ffffff14}
+.nav{max-width:1160px;margin:auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{font-weight:900;font-size:25px;letter-spacing:3px;display:flex;align-items:center;gap:10px}.brandmark{width:34px;height:34px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:17px}
+.navlinks{display:flex;gap:22px;color:#e6ded4;font-size:13px}.navlinks a:hover{color:var(--gold2)}
+.hero{background:linear-gradient(100deg,#171512f5 0%,#171512d9 52%,#17151270 100%),url("https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1800&q=85") center/cover;color:#fff}
+.hero-inner{max-width:1160px;margin:auto;padding:74px 22px 82px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:35px}
+.kicker{color:var(--gold2);font-size:13px;font-weight:800;letter-spacing:1px}
+h1{font-size:clamp(38px,6vw,68px);line-height:1.2;margin:12px 0 18px;font-weight:900}
+.hero p{color:#e6ded4;max-width:540px;line-height:2;margin:0 0 25px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{border:0;border-radius:30px;padding:12px 22px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn.gold{background:var(--gold);color:#21180e}.btn.outline{border:1px solid #ffffff70;color:#fff;background:#ffffff08}
+.hero-note{justify-self:end;background:#ffffff12;border:1px solid #ffffff2c;backdrop-filter:blur(10px);border-radius:22px;padding:22px;max-width:330px;width:100%}
+.note-label{color:var(--gold2);font-size:12px}.note-title{font-size:22px;font-weight:900;margin:5px 0}.note-desc{font-size:13px;color:#e6ded4;line-height:1.8}
+main{max-width:1160px;margin:auto;padding:0 22px}
+.feature-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:-28px;position:relative}
+.feature{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:17px 20px;box-shadow:0 8px 24px #2b1d0d08;display:flex;gap:12px;align-items:center}
+.feature-icon{width:42px;height:42px;border-radius:13px;background:#f4e9d9;display:grid;place-items:center;font-size:21px}
+.feature strong{display:block;font-size:14px}.feature small{color:var(--muted);font-size:12px}
+.menu-section{padding:55px 0 12px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:20px}
+.eyebrow{color:#9b7543;font-size:12px;font-weight:900}.section-head h2{font-size:30px;margin:4px 0 0}.section-head p{color:var(--muted);font-size:13px;margin:0}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.search{flex:1;min-width:200px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:12px 16px;outline:none}
+.search:focus{border-color:var(--gold)}
+.category-list{display:flex;gap:8px;flex-wrap:wrap}
+.cat{border:1px solid #ded2c3;background:#fff;color:#4c4034;border-radius:24px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer}
+.cat.active,.cat:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px #2b1d0d10}
+.photo{height:190px;position:relative;background:#e7ddd1;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.card:hover .photo img{transform:scale(1.04)}
+.tag{position:absolute;top:12px;right:12px;background:#fffdf2eF;color:#5b4327;border-radius:20px;padding:5px 10px;font-size:11px;font-weight:900}
+.card-body{padding:17px}.card-title{display:flex;justify-content:space-between;gap:10px;align-items:start}.card h3{font-size:17px;margin:0;font-weight:900}.price{white-space:nowrap;color:#9b713d;font-weight:900;font-size:16px}.card p{color:var(--muted);font-size:12px;line-height:1.8;min-height:42px;margin:8px 0 15px}
+.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}.mini{font-size:11px;color:#9a8b7b}.add{border:0;border-radius:11px;background:#211d18;color:#fff;padding:9px 14px;font-weight:800;cursor:pointer}.add:hover{background:#5b4327}
+.promo{margin:50px 0;background:linear-gradient(110deg,#211d18,#4a3421);border-radius:24px;color:#fff;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden}
+.promo h2{margin:0 0 8px;font-size:28px}.promo p{margin:0;color:#e4d8c9;font-size:13px;line-height:1.8}.promo-badge{border:1px solid #c79a5b;border-radius:50%;width:110px;height:110px;flex-shrink:0;display:grid;place-items:center;text-align:center;color:var(--gold2);font-weight:900;transform:rotate(-10deg)}
+.order-area{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:45px 0}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px}.panel h2{margin:0 0 15px;font-size:22px}
+.cart-row{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:10px 0;font-size:13px}
+.qty{display:flex;align-items:center;gap:8px}.qty button{width:27px;height:27px;border:1px solid var(--line);background:white;border-radius:8px;cursor:pointer}
+.total{font-size:20px;font-weight:900;margin:16px 0}.field{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin:5px 0 10px;background:#fff;outline:none}.field:focus{border-color:var(--gold)}
+textarea.field{min-height:75px;resize:vertical}
+.whatsapp{width:100%;background:var(--green);color:white;border:0;border-radius:13px;padding:13px;font-weight:900;cursor:pointer}
+.contact-info{display:grid;gap:12px}.contact-line{display:flex;align-items:center;gap:12px;padding:12px;background:#faf6f0;border-radius:12px;font-size:13px}.contact-line span{font-size:20px}
+footer{background:#171512;color:#e7ded3;margin-top:60px;padding:30px 22px;text-align:center}
+footer .brand{justify-content:center;margin-bottom:8px}footer p{font-size:12px;color:#bdb1a3;margin:5px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#211d18;color:white;padding:12px 18px;border-radius:14px;z-index:50;display:none;font-size:13px}
+@media(max-width:800px){.hero-inner{grid-template-columns:1fr;padding:55px 22px 65px}.hero-note{justify-self:start;max-width:100%}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.feature-strip{grid-template-columns:1fr}.order-area{grid-template-columns:1fr}.navlinks{display:none}.photo{height:160px}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.photo{height:205px}.section-head{align-items:start;flex-direction:column}.promo{padding:23px}.promo h2{font-size:23px}.promo-badge{width:82px;height:82px;font-size:12px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+ <nav class="nav">
+  <a class="brand" href="#"><span class="brandmark">T</span>TREND</a>
+  <div class="navlinks"><a href="#menu">المنيو</a><a href="#offers">العروض</a><a href="#order">اطلب الآن</a><a href="#contact">تواصل معنا</a></div>
+  <a class="btn gold" href="#menu">تصفح المنيو ↓</a>
+ </nav>
+</header>
+<section class="hero">
+ <div class="hero-inner">
+  <div>
+   <div class="kicker">YOUR DAILY COFFEE MOMENT</div>
+   <h1>لحظتك الحلوة<br>تبدأ من هنا.</h1>
+   <p>قهوة مختارة، مذاق يظبط يومك، وأصناف معمولة بحب. اكتشف منيو TREND واختر مشروبك المفضل.</p>
+   <div class="hero-actions"><a class="btn gold" href="#menu">اكتشف المنيو</a><a class="btn outline" href="#order">كوّن طلبك</a></div>
+  </div>
+  <aside class="hero-note"><div class="note-label">اختيارنا لك</div><div class="note-title">آيس سبانش لاتيه</div><div class="note-desc">مزيج غني من الإسبريسو والحليب المكثف، بارد ومنعش في كل رشفة.</div></aside>
+ </div>
+</section>
+<main>
+ <div class="feature-strip">
+  <div class="feature"><div class="feature-icon">☕</div><div><strong>قهوة بطعم مميز</strong><small>اختيارات تناسب كل الأذواق</small></div></div>
+  <div class="feature"><div class="feature-icon">✦</div><div><strong>مكونات مختارة</strong><small>جودة في كل كوب</small></div></div>
+  <div class="feature"><div class="feature-icon">⌁</div><div><strong>اطلب بسهولة</strong><small>جهز طلبك وأرسله عبر واتساب</small></div></div>
+ </div>
+ <section class="menu-section" id="menu">
+  <div class="section-head"><div><div class="eyebrow">OUR MENU</div><h2>المنيو</h2></div><p>اختار اللي على مزاجك</p></div>
+  <div class="tools"><input class="search" id="search" type="search" placeholder="ابحث عن مشروب أو حلوى…"><div class="category-list" id="categories"><button class="cat active" data-cat="all">الكل</button><button class="cat" data-cat="hot">ساخن</button><button class="cat" data-cat="cold">بارد</button><button class="cat" data-cat="dessert">حلويات</button></div></div>
+  <div class="grid" id="products"></div>
+ </section>
+ <section class="promo" id="offers"><div><div class="eyebrow">TREND SPECIAL</div><h2>خلّيها كومبو ☕</h2><p>اختار قهوتك المفضلة مع قطعة حلوى واستمتع بوقتك.<br>اسألنا عن عروض الكومبو المتاحة.</p></div><div class="promo-badge">SPECIAL<br>COMBO</div></section>
+ <section class="order-area" id="order">
+  <div class="panel"><h2>🛒 طلبك</h2><div id="cart"><p class="mini">أضف أصنافًا من المنيو لبدء الطلب.</p></div><div class="total">الإجمالي: <span id="total">0</span> جنيه</div><label class="mini" for="notes">ملاحظات إضافية</label><textarea class="field" id="notes" placeholder="مثلاً: سكر قليل، بدون ثلج…"></textarea><button class="whatsapp" id="send">إرسال الطلب على واتساب</button><p class="mini">راجع طلبك قبل الإرسال. سيتم فتح واتساب برسالة جاهزة.</p></div>
+  <div class="panel" id="contact"><h2>زورنا أو تواصل معنا</h2><div class="contact-info"><div class="contact-line"><span>📍</span><div><b>عنوان الكافيه</b><br><small>أضف عنوان TREND هنا</small></div></div><div class="contact-line"><span>📞</span><div><b>الطلبات والاستفسارات</b><br><small>أضف رقم واتساب الكافيه</small></div></div><div class="contact-line"><span>🕒</span><div><b>مواعيد العمل</b><br><small>يوميًا — أضف مواعيد العمل</small></div></div><div class="contact-line"><span>📷</span><div><b>تابعنا</b><br><small>أضف حسابات السوشيال ميديا</small></div></div></div></div>
+ </section>
+</main>
+<footer><div class="brand"><span class="brandmark">T</span>TREND</div><p>قهوة ومشروبات على مزاجك</p><p>© TREND Café · نموذج منيو إلكتروني قابل للتخصيص</p></footer>
+<div class="toast" id="toast"></div>
+<script>
+/* نموذج تجريبي: عدّل الأصناف والأسعار ورقم الواتساب والعنوان قبل النشر */
+const WHATSAPP_NUMBER="201000000000"; // ضع رقم الكافيه بصيغة دولية بدون +
+const items=[
+{id:1,name:"إسبريسو",price:55,cat:"hot",desc:"قهوة إيطالية مركزة بطعم غني.",tag:"كلاسيك",img:"https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=800&q=80"},
+{id:2,name:"أمريكانو",price:65,cat:"hot",desc:"إسبريسو مع الماء الساخن ونكهة متوازنة.",tag:"خفيف",img:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80"},
+{id:3,name:"كابتشينو",price:75,cat:"hot",desc:"إسبريسو وحليب ورغوة ناعمة.",tag:"الأكثر طلبًا",img:"https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=800&q=80"},
+{id:4,name:"لاتيه",price:85,cat:"hot",desc:"قهوة بالحليب بطعم كريمي ناعم.",tag:"مفضل",img:"https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80"},
+{id:5,name:"موكا",price:95,cat:"hot",desc:"مزيج القهوة والشوكولاتة والحليب.",tag:"شوكولاتة",img:"https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&q=80"},
+{id:6,name:"آيس لاتيه",price:90,cat:"cold",desc:"لاتيه بارد مع الثلج وانتعاش القهوة.",tag:"بارد",img:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80"},
+{id:7,name:"آيس سبانش لاتيه",price:100,cat:"cold",desc:"إسبريسو بارد مع الحليب المكثف.",tag:"ترشيحنا",img:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80"},
+{id:8,name:"آيس كاراميل",price:100,cat:"cold",desc:"قهوة باردة بلمسة كراميل حلوة.",tag:"حلو",img:"https://images.unsplash.com/photo-1485808191679-5f86510681a2?auto=format&fit=crop&w=800&q=80"},
+{id:9,name:"فرابتشينو",price:110,cat:"cold",desc:"مشروب قهوة مثلج وكريمي.",tag:"منعش",img:"https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80"},
+{id:10,name:"تشيز كيك",price:95,cat:"dessert",desc:"قطعة تشيز كيك بقوام كريمي.",tag:"حلوى",img:"https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=800&q=80"},
+{id:11,name:"براونيز",price:75,cat:"dessert",desc:"براونيز غنية بالشوكولاتة.",tag:"شوكولاتة",img:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80"},
+{id:12,name:"كوكيز",price:50,cat:"dessert",desc:"كوكيز طازجة مع قطع الشوكولاتة.",tag:"سناك",img:"https://images.unsplash.com/photo-1499636170300-8f9b2d8b2d9b?auto=format&fit=crop&w=800&q=80"}
+];
+const cart={};let active="all";
+const $=id=>document.getElementById(id);
+function renderProducts(){
+ const q=$("search").value.trim().toLowerCase();
+ const list=items.filter(p=>(active==="all"||p.cat===active)&&(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)));
+ $("products").innerHTML=list.map(p=>`<article class="card"><div class="photo"><img loading="lazy" src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#d7c2a6,#6c4a2d)'"><span class="tag">${p.tag}</span></div><div class="card-body"><div class="card-title"><h3>${p.name}</h3><span class="price">${p.price} ج</span></div><p>${p.desc}</p><div class="card-bottom"><span class="mini">☕ TREND</span><button class="add" onclick="add(${p.id})">+ أضف للطلب</button></div></div></article>`).join("")||"<p>لا توجد نتائج.</p>";
+}
+function add(id){cart[id]=(cart[id]||0)+1;renderCart();toast("تمت إضافة الصنف إلى طلبك")}
+function change(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];renderCart()}
+function renderCart(){
+ const chosen=items.filter(p=>cart[p.id]);
+ $("cart").innerHTML=chosen.length?chosen.map(p=>`<div class="cart-row"><span>${p.name}<br><small>${p.price} جنيه</small></span><span class="qty"><button onclick="change(${p.id},-1)">−</button><b>${cart[p.id]}</b><button onclick="change(${p.id},1)">+</button></span></div>`).join(""):"<p class='mini'>أضف أصنافًا من المنيو لبدء الطلب.</p>";
+ $("total").textContent=chosen.reduce((sum,p)=>sum+p.price*cart[p.id],0);
+}
+function toast(s){$("toast").textContent=s;$("toast").style.display="block";setTimeout(()=>{$("toast").style.display="none"},1800)}
+$("search").addEventListener("input",renderProducts);
+document.querySelectorAll(".cat").forEach(b=>b.addEventListener("click",()=>{active=b.dataset.cat;document.querySelectorAll(".cat").forEach(x=>x.classList.toggle("active",x===b));renderProducts()}));
+$("send").addEventListener("click",()=>{
+ const chosen=items.filter(p=>cart[p.id]);if(!chosen.length){toast("أضف صنفًا للطلب أولًا");return}
+ if(WHATSAPP_NUMBER==="201000000000"){toast("أضف رقم واتساب الكافيه داخل الملف أولًا");return}
+ let msg="مرحبًا TREND، أريد طلب:\\n"+chosen.map(p=>`- ${p.name} × ${cart[p.id]} = ${p.price*cart[p.id]} جنيه`).join("\\n")+`\\n\\nالإجمالي: ${$("total").textContent} جنيه`;
+ const note=$("notes").value.trim();if(note)msg+="\\nملاحظات: "+note;
+ window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg),"_blank");
+});
+renderProducts();renderCart();
+</script>
+</body></html>
